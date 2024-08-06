@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import ShopIntro from './components/ShopIntro/ShopIntro';
 import PropTypes from 'prop-types';
 import './App.css'
+
 
 const RenderName = (props) => {
   return <div>{props.name}</div>;
@@ -19,10 +21,17 @@ const App = () => {
 
   return (
     <>
+      <ShopIntro />
       <button type="button" onClick={clickHandler}>
         Click Me
       </button>
       <h1>{heading}</h1>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
     </>
   );
 };

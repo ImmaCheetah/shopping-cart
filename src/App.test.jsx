@@ -30,6 +30,17 @@ describe("App component", () => {
   
       expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
     });
+
+    it('list contains 4 items', () => {
+      render(<App />)
+
+      const listEl = screen.getByRole('list')
+      const listItems = screen.getAllByRole('listitem')
+
+      expect(listItems.length).toBe(4)
+
+    })
+
   });
 
   it('toUpperCase', () => {
