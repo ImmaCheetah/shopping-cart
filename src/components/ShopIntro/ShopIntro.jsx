@@ -1,10 +1,14 @@
 import styles from './ShopIntro.module.css'
 
-export default function ShopIntro() {
+export default function ShopIntro({onClick}) {
+    // function onClick() {
+
+    // }
+
     return (
         <>
             <h1>Img</h1>
-            <button className={styles.enterBtn}>Enter Shop</button>
+            <button onClick={onClick} className={styles.enterBtn}>Enter Shop</button>
         </>
     )
 }

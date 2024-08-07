@@ -1,4 +1,3 @@
-import { Children } from "react";
 import App from "./App";
 import RootLayout from "./components/RootLayout/RootLayout";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
