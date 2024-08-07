@@ -2,48 +2,37 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import App from './App';
+import {RouterProvider, createMemoryRouter} from 'react-router-dom';
+import routes from './routes';
 
-describe('something truthy and falsy', () => {
-  it('true to be true', () => {
-    expect(true).toBe(true);
-  });
+describe('page navigation', () => {
+  const router = createMemoryRouter(routes)
 
-  it('false to be false', () => {
-    expect(false).toBe(false);
-  });
-});
+  it('should go to shop', async () => {
+    render(
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    )
+    const user = userEvent.setup()
 
-describe("App component", () => {
-    it("renders magnificent monkeys", () => {
-      // since screen does not have the container property, we'll destructure render to obtain a container for this test
-      const { container } = render(<App />);
-      expect(container).toMatchSnapshot();
-    });
-  
-    it("renders radical rhinos after button click", async () => {
-      const user = userEvent.setup();
-      render(<App />);
-      screen.debug()
-      const button = screen.getByRole("button", { name: "Click Me" });
-  
-      await user.click(button);
-  
-      expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
-    });
+    const welcomeText = screen.getByRole('heading', {name: /Welcome/i})
+    expect(welcomeText).toBeInTheDocument()
 
-    it('list contains 4 items', () => {
-      render(<App />)
-
-      const listEl = screen.getByRole('list')
-      const listItems = screen.getAllByRole('listitem')
-
-      expect(listItems.length).toBe(4)
-
-    })
-
-  });
-
-  it('toUpperCase', () => {
-    const result = ('foobar').toUpperCase()
-    expect(result).toMatchSnapshot()
+    await user.click(screen.getByRole('link', {name: /shop/i}))
+    
+    expect(screen.getByRole('heading', {name: /items/i})).toBeInTheDocument()
   })
+
+  it('error page', () => {
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/abc'],
+    });
+  
+    render(
+      <RouterProvider router={router} />
+    );
+
+    expect(screen.getByRole('heading', {name: /seems you got lost/i})).toBeInTheDocument()
+  })
+})

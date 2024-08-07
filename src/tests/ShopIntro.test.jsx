@@ -8,9 +8,9 @@ describe('Home page', () => {
         render(<ShopIntro />)
         screen.debug()
 
-        const button = screen.getByRole('button', {name: /Enter Shop/i})
+        // const button = screen.getByRole('button', {name: /Enter Shop/i})
 
-        expect(button).toBeInTheDocument()
+        expect(screen.getByText('Enter Shop')).toBeInTheDocument()
     })
 
     it('should call onClick when clicked', async () => {
@@ -23,7 +23,9 @@ describe('Home page', () => {
         await user.click(button)
 
         expect(onClick).toHaveBeenCalled()
+        expect(screen.getByText('All Items here')).toBeInTheDocument()
     })
+    
 
     it('should not call onClick when not clicked', async () => {
         const onClick = vi.fn();

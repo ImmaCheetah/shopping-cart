@@ -1,17 +1,16 @@
 import App from "./App";
-import RootLayout from "./components/RootLayout/RootLayout";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import ShopPage from "./components/ShopPage/ShopPage";
-// import Profile from "./components/Profile";
-// import DefaultProfile from "./components/DefaultProfile";
+import ShopIntro from "./components/ShopIntro/ShopIntro";
+
 
 const routes = [
   {
     path: "/",
-    element: <RootLayout />,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
-        { index: true, element: <App /> },
+        { index: true, element: <ShopIntro/> },
         { path: "shop", element: <ShopPage /> },
     ]
   },

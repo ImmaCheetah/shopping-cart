@@ -1,8 +1,27 @@
 import { useState, useEffect } from 'react'
-import ShopIntro from './components/ShopIntro/ShopIntro';
+import { NavLink, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css'
+import ShopIntro from './components/ShopIntro/ShopIntro';
 
+const App = () => {
+  
+  return (
+    <>
+      <header>
+        <nav>
+          <h1>Store Name</h1>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="shop">Shop</NavLink>
+          <NavLink to="cart">Cart</NavLink>
+        </nav>
+      </header>
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+};
 
 const RenderName = (props) => {
   return <div>{props.name}</div>;
@@ -10,30 +29,6 @@ const RenderName = (props) => {
 
 RenderName.propTypes = {
   name: PropTypes.string.isRequired,
-};
-
-const App = () => {
-  const [heading, setHeading] = useState("Magnificent Monkeys");
-
-  const clickHandler = () => {
-    setHeading("Radical Rhinos");
-  };
-
-  return (
-    <>
-      <ShopIntro />
-      <button type="button" onClick={clickHandler}>
-        Click Me
-      </button>
-      <h1>{heading}</h1>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-      </ul>
-    </>
-  );
 };
 
 export default App

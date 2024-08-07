@@ -1,14 +1,13 @@
 import styles from './ShopIntro.module.css'
+import { Link } from 'react-router-dom'
 
-export default function ShopIntro({onClick}) {
-    // function onClick() {
-
-    // }
+export default function ShopIntro() {
 
     return (
         <>
-            <h1>Img</h1>
-            <button onClick={onClick} className={styles.enterBtn}>Enter Shop</button>
+            <h1>Welcome</h1>
+            {/* <button onClick={onClick} className={styles.enterBtn}>Enter Shop</button> */}
+            <Link to={'shop'}><button>Start Buying</button></Link>
         </>
     )
 }
