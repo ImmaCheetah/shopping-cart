@@ -1,15 +1,15 @@
 import { Children } from "react";
 import App from "./App";
 import RootLayout from "./components/RootLayout/RootLayout";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 // import Profile from "./components/Profile";
-// import ErrorPage from "./components/ErrorPage";
 // import DefaultProfile from "./components/DefaultProfile";
 
 const routes = [
   {
     path: "/",
     element: <RootLayout />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
         { index: true, element: <App /> },
     ]
