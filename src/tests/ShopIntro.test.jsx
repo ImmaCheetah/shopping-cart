@@ -2,35 +2,39 @@ import { vi, describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import ShopIntro from '../components/ShopIntro/ShopIntro';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import routes from '../routes';
 
-describe('Home page', () => {
-    it('should render Enter Shop button', () => {
-        render(<ShopIntro />)
+
+describe('Shop Intro', () => {
+    const router = createMemoryRouter(routes)
+
+    it('should render Start Buying button', () => {
+        render (
+            <RouterProvider router={router}>
+                <ShopIntro />
+            </RouterProvider>
+        )
         screen.debug()
 
-        // const button = screen.getByRole('button', {name: /Enter Shop/i})
+        const button = screen.getByRole('button', {name: /start buying/i})
 
-        expect(screen.getByText('Enter Shop')).toBeInTheDocument()
+        expect(button).toBeInTheDocument()
     })
 
-    it('should call onClick when clicked', async () => {
-        const onClick = vi.fn();
+    it('should go to shop page when button clicked', async () => {
+        render (
+            <RouterProvider router={router}>
+                <ShopIntro />
+            </RouterProvider>
+        )
+        
         const user = userEvent.setup()
-        render(<ShopIntro onClick={onClick}/>)
-
-        const button = screen.getByRole('button', {name: /Enter Shop/i})
+        const button = screen.getByRole('button', {name: /start buying/i})
 
         await user.click(button)
 
-        expect(onClick).toHaveBeenCalled()
-        expect(screen.getByText('All Items here')).toBeInTheDocument()
+        expect(screen.getByRole('heading', {name: /items/i}))
     })
     
-
-    it('should not call onClick when not clicked', async () => {
-        const onClick = vi.fn();
-        render(<ShopIntro onClick={onClick}/>)
-
-        expect(onClick).not.toHaveBeenCalled()
-    })
 })
