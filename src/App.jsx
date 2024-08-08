@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css'
-import ShopIntro from './components/ShopIntro/ShopIntro';
 
 const App = () => {
   

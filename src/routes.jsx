@@ -1,7 +1,9 @@
 import App from "./App";
-import ErrorPage from "./components/ErrorPage/ErrorPage";
-import ShopPage from "./components/ShopPage/ShopPage";
-import ShopIntro from "./components/ShopIntro/ShopIntro";
+import HomePage from "./pages/HomePage/HomePage";
+import ShopPage from "./pages/ShopPage/ShopPage";
+import CartPage from "./pages/CartPage/CartPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
 
 
 const routes = [
@@ -10,8 +12,9 @@ const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-        { index: true, element: <ShopIntro/> },
+        { index: true, element: <HomePage /> },
         { path: "shop", element: <ShopPage /> },
+        { path: "cart", element: <CartPage /> },
     ]
   },
 ];
