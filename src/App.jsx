@@ -1,19 +1,15 @@
 import { useState, useEffect } from 'react'
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css'
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   
   return (
     <>
       <header>
-        <nav>
-          <h1>Store Name</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="shop">Shop</NavLink>
-          <NavLink to="cart">Cart</NavLink>
-        </nav>
+        <Navbar />
       </header>
       <main>
         <Outlet />
