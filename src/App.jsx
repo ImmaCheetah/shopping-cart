@@ -28,7 +28,7 @@ const App = () => {
         <Navbar />
       </header>
       <main>
-        <Outlet />
+        <Outlet context={[storeData, setStoreData]}/>
       </main>
     </>
   );
