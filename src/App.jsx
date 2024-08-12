@@ -11,7 +11,7 @@ const App = () => {
   
   useEffect(() => {
     if(!localStorage.getItem('storageData')) {
-      fetch('https://fakestoreapi.com/products')
+      fetch('https://fakestoreapiFAIL.com/products') // fail fetch to test LS
         .then((response) => {
           if (response.status >= 400) {
             throw new Error("server error");
@@ -24,6 +24,7 @@ const App = () => {
         })
         .catch((error) => setError(error))
       }
+
       // .finally(() => setLoading(false));
     }, [])
   

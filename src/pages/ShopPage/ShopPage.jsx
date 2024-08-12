@@ -7,19 +7,17 @@ export default function ShopPage() {
     // const context = useOutletContext()
     const [storeData, setStoreData] = useOutletContext()
     const [storeInStorage, setStoreInStorage] = useState(JSON.parse(localStorage.getItem('storageData')))
-    console.log(`YOOOO, ${storeInStorage}`);
-    if(!storeInStorage) {
-        setStoreInStorage(localStorage.getItem('storageData'))
-        console.log('no store data')
+
+    if(!storeData) {
+        setStoreData(JSON.parse(localStorage.getItem('storageData')))
+        // trigger re render here?
     }
-    console.log(storeInStorage)
+
     return (
         <>
             <h1>Items</h1>
-            {/* {storeData[0].map((item) => {
-                return [item]
-            })} */}
-            {storeInStorage.map((product) => {
+            {/* storeInStorage works with initial LS data */}
+            {storeData.map((product) => {
                 return (
                     <Card 
                       key={product.id}
@@ -27,8 +25,7 @@ export default function ShopPage() {
                       price={product.price}
                       imgUrl={product.image}
                     />
-                )
-                
+                )  
             })}
             
         </>
