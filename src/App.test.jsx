@@ -1,13 +1,41 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import App from './App';
 import {RouterProvider, createMemoryRouter} from 'react-router-dom';
 import routes from './routes';
 
-describe('page navigation', () => {
-  const router = createMemoryRouter(routes)
+global.fetch = vi.fn(() => {
+  const data = { id: '1', title: 'shirt'}
 
+  return Promise.resolve({
+    json: () => Promise.resolve(data),
+  });
+})
+
+const router = createMemoryRouter(routes)
+
+describe.only('fetching', () => {
+  it('shows error message with failed fetch', async () => {
+    global.fetch.mockImplementationOnce(() => {
+      return Promise.reject({ message: 'A network error was encountered' });
+    });
+
+    render(
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>)
+    screen.debug()
+    const errorMsg = await screen.findByText('A network error was encountered')
+
+   expect(errorMsg).toBeInTheDocument()
+
+  })
+
+})
+
+describe('page navigation', () => {
+  
   it('should go to shop', async () => {
     render(
       <RouterProvider router={router}>
