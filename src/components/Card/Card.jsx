@@ -8,9 +8,16 @@ export default function Card({title, price, imgUrl}) {
     console.log('CART', cart)
 
     function handleClick() {
-        // setCartQuantity(prevQty => {
-        //     return ([...prevQty, ])
-        // })
+        setCart(prevQty => {
+            return ([
+                ...prevQty, 
+                {
+                    title,
+                    price,
+                    imgUrl,
+                }
+            ])
+        })
     }
 
     return (
@@ -20,7 +27,7 @@ export default function Card({title, price, imgUrl}) {
             <p>{price}</p>
 
             <button onClick={handleClick}>Add to Cart</button>
-            <AddToCart />
+            <AddToCart onClick={handleClick}/>
         </div>
     )
 }
