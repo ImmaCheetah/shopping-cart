@@ -15,7 +15,7 @@ global.fetch = vi.fn(() => {
 
 const router = createMemoryRouter(routes)
 
-describe.only('fetching', () => {
+describe('fetching', () => {
   it('shows error message with failed fetch', async () => {
     global.fetch.mockImplementationOnce(() => {
       return Promise.reject({ message: 'A network error was encountered' });

@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 
 export default function ShopPage() {
-    const [storeData, setStoreData] = useOutletContext()
+    const {storeData, setStoreData} = useOutletContext()
 
-    console.log(storeData)
+    console.log('EY',storeData)
 
     useEffect(() => {
         setStoreData(JSON.parse(localStorage.getItem('storageData')))

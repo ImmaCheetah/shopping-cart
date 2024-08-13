@@ -6,7 +6,8 @@ import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   const [storeData, setStoreData] = useState()
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null)
+  const [cart, setCart] = useState([])
   // const [loading, setLoading] = useState(true);
   
   useEffect(() => {
@@ -34,10 +35,10 @@ const App = () => {
   return (
     <>
       <header>
-        <Navbar />
+        <Navbar cartQuantity={cart.length}/>
       </header>
       <main>
-        <Outlet context={[storeData, setStoreData]}/>
+        <Outlet context={{storeData, setStoreData, cart, setCart}}/>
       </main>
     </>
   );
