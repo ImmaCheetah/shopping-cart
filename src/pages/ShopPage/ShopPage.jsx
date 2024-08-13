@@ -4,9 +4,8 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 
 export default function ShopPage() {
-    // const context = useOutletContext()
     const [storeData, setStoreData] = useOutletContext()
-    const [storeInStorage, setStoreInStorage] = useState(JSON.parse(localStorage.getItem('storageData')))
+
     console.log(storeData)
 
     useEffect(() => {
@@ -16,7 +15,6 @@ export default function ShopPage() {
     return (
         <>
             <h1>Items</h1>
-            {/* storeInStorage works with initial LS data */}
             {storeData && storeData.map((product) => {
                 return (
                     <Card 

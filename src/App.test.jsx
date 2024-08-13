@@ -32,6 +32,20 @@ describe.only('fetching', () => {
 
   })
 
+  it('fetches correct data', async () => {
+    render(
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>)
+    const user = userEvent.setup()
+    const shopLink = screen.getByRole('link', {name: /shop/i})
+
+    await user.click(shopLink)
+    const fetchData = await screen.findByText('shirt')
+
+    expect(fetchData).toBeInTheDocument()
+  })
+
 })
 
 describe('page navigation', () => {
