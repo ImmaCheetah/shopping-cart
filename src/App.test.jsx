@@ -1,21 +1,26 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import App from './App';
 import {RouterProvider, createMemoryRouter} from 'react-router-dom';
 import routes from './routes';
 
+// afterEach(() => {
+//   cleanup()
+// }) 
+
 global.fetch = vi.fn(() => {
-  const data = { id: '1', title: 'shirt'}
+  const data = [{ id: '1', title: 'shirt'}]
 
   return Promise.resolve({
     json: () => Promise.resolve(data),
   });
 })
 
-const router = createMemoryRouter(routes)
+
 
 describe('fetching', () => {
+  const router = createMemoryRouter(routes)
   it('shows error message with failed fetch', async () => {
     global.fetch.mockImplementationOnce(() => {
       return Promise.reject({ message: 'A network error was encountered' });
@@ -49,7 +54,7 @@ describe('fetching', () => {
 })
 
 describe('page navigation', () => {
-  
+  const router = createMemoryRouter(routes)
   it('should go to shop', async () => {
     render(
       <RouterProvider router={router}>
@@ -58,7 +63,7 @@ describe('page navigation', () => {
     )
     const user = userEvent.setup()
 
-    const welcomeText = screen.getByRole('heading', {name: /Welcome/i})
+    const welcomeText = screen.getByRole('heading', {name: /welcome/i})
     expect(welcomeText).toBeInTheDocument()
 
     await user.click(screen.getByRole('link', {name: /shop/i}))
