@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function AddToCart({onClick}) {
+export default function AddToCart({onClick, quantity}) {
     const [productQty, setProductQty] = useState(1)
 
     function incrementQty() {
@@ -8,9 +8,7 @@ export default function AddToCart({onClick}) {
             return
         }
 
-        setProductQty(prevQty => {
-            return prevQty + 1
-        })
+        setProductQty(productQty + 1)
     }
 
     function decrementQty() {

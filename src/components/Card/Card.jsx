@@ -1,20 +1,23 @@
 import { useOutletContext } from 'react-router-dom'
+import { useState } from 'react'
 import styles from './Card.module.css'
 
 import AddToCart from '../AddToCart/AddToCart'
 
 export default function Card({title, price, imgUrl}) {
     const {cart, setCart} = useOutletContext()
+    const [quantity, setQuantity] = useState(1);
     console.log('CART', cart)
 
     function handleClick() {
-        setCart(prevQty => {
+        setCart(prevCart => {
             return ([
-                ...prevQty, 
+                ...prevCart, 
                 {
                     title,
                     price,
                     imgUrl,
+                    quantity
                 }
             ])
         })
@@ -25,9 +28,7 @@ export default function Card({title, price, imgUrl}) {
             <img src={imgUrl} alt="" className={styles.productImage}/>
             <p>{title}</p>
             <p>{price}</p>
-
-            <button onClick={handleClick}>Add to Cart</button>
-            <AddToCart onClick={handleClick}/>
+            <AddToCart onClick={handleClick} quantity={quantity}/>
         </div>
     )
 }
