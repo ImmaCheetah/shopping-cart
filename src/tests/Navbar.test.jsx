@@ -38,8 +38,8 @@ it('goes to cart after click', async () => {
         </RouterProvider>
     )
     const user = userEvent.setup()
-    const shopLink = screen.getByRole('link', {name: /cart/i})
-    await user.click(shopLink)
+    const cartLink = screen.getByRole('link', {name: /cart/i})
+    await user.click(cartLink)
     
     expect(screen.getByRole('heading', {name: /cart/i}))
 })

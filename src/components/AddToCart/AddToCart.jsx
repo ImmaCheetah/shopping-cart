@@ -51,7 +51,8 @@ export default function AddToCart({title, price, imgUrl}) {
     return (
         <div>
             <button onClick={decrementQty}>-</button>
-            <input type="number" value={productQty} onChange={handleChange}/>
+            <label htmlFor="productQty">Qty</label>
+            <input id="productQty" type="number"  value={productQty} onChange={handleChange}/>
             <button onClick={incrementQty}>+</button>
             <button onClick={handleClick}>Add to Cart</button>
         </div>

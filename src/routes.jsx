@@ -4,8 +4,6 @@ import ShopPage from "./pages/ShopPage/ShopPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-
-
 const routes = [
   {
     path: "/",
