@@ -3,9 +3,8 @@ import { useOutletContext } from "react-router-dom";
 import useChangeProductQuantity from "../../useChangeProductQuantity";
 
 export default function AddToCart({title, price, imgUrl}) {
-    // const [productQty, setProductQty] = useState(1)
+    const [productQty, setProductQty] = useState(1)
     const {cart, setCart} = useOutletContext()
-    const {productQty, decrementQty, incrementQty, handleChange} = useChangeProductQuantity(title)
 
     console.log('SHOP PAGE', cart)
     console.log('CUSTOM HOOK',productQty)
@@ -24,33 +23,33 @@ export default function AddToCart({title, price, imgUrl}) {
             ])
         })
 
-        // setProductQty(1);
+        setProductQty(1);
     }
 
-    // function incrementQty() {
-    //     if (productQty >= 99) {
-    //         return
-    //     }
-    //     setProductQty(productQty + 1)
-    // }
+    function incrementQty() {
+        if (productQty >= 99) {
+            return
+        }
+        setProductQty(productQty + 1)
+    }
 
-    // function decrementQty() {
-    //     if (productQty <= 1) {
-    //         return
-    //     }
+    function decrementQty() {
+        if (productQty <= 1) {
+            return
+        }
 
-    //     setProductQty(prevQty => {
-    //         return prevQty - 1
-    //     })
-    // }
+        setProductQty(prevQty => {
+            return prevQty - 1
+        })
+    }
 
-    // function handleChange(e) {
-    //     if (productQty > 99) {
-    //         setProductQty(99)
-    //     } else {
-    //         setProductQty(e.target.value)
-    //     }
-    // }
+    function handleChange(e) {
+        if (productQty > 99) {
+            setProductQty(99)
+        } else {
+            setProductQty(e.target.value)
+        }
+    }
 
     return (
         <div>
