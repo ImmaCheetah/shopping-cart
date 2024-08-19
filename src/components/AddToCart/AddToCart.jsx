@@ -47,59 +47,6 @@ export default function AddToCart({title, price, imgUrl}) {
                 })) 
             })
         }
-        // setCart(prevCart => {
-        //     console.log('LENGTH',prevCart.length)
-        //     if (cart.length === 0) {
-        //         console.log('IF')
-        //         return ([
-        //             ...prevCart, 
-        //             {
-        //                 title,
-        //                 price,
-        //                 imgUrl,
-        //                 productQty,
-        //                 totalPrice: productQty * price
-        //             }
-        //         ])
-        //     } else {
-        //         prevCart.map((product => {
-        //             console.log('MAP PRODUCT TITLE',product.title)
-        //             if (product.title === title) {
-        //                 return {
-        //                     ...product,
-        //                     productQty: productQty
-        //                 }
-        //             } else {
-        //                 return product
-        //             }
-        //         })) 
-        //     }
-        //     console.log('SUBMIT CART', cart)
-        //     return (
-        //         prevCart.map((product => {
-        //             console.log('MAP PRODUCT TITLE',product.title)
-        //             if (product.title === title) {
-        //                 return {
-        //                     ...product,
-        //                     productQty: productQty
-        //                 }
-        //             } else {
-        //                 console.log('ELSE',title)
-        //                 return ([
-        //                     ...prevCart, 
-        //                     {
-        //                         title,
-        //                         price,
-        //                         imgUrl,
-        //                         productQty,
-        //                         totalPrice: productQty * price
-        //                     }
-        //                 ])
-        //             }
-        //         }))
-        //     )
-        // })
-
         setProductQty(1);
     }
 
