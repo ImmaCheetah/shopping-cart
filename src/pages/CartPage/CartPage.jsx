@@ -9,10 +9,10 @@ export default function CartPage() {
     return (
         <>
             <h1>Cart</h1>
-            {cart && cart.map((item) => {
+            {cart && cart.map((item, index) => {
                 return (
                     <CartItem 
-                        key={item}
+                        key={index}
                         title={item.title}
                         totalPrice={item.totalPrice}
                         quantity={item.productQty}

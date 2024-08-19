@@ -1,34 +1,10 @@
 import { useState } from 'react'
 import styles from './CartItem.module.css'
-
+import useChangeProductQuantity from '../../useChangeProductQuantity'
 
 export default function CartItem({title, totalPrice, quantity, imgUrl}) {
-    const [productQty, setProductQty] = useState(1)
-
-    function incrementQty() {
-        if (productQty >= 99) {
-            return
-        }
-        setProductQty(productQty + 1)
-    }
-
-    function decrementQty() {
-        if (productQty <= 1) {
-            return
-        }
-
-        setProductQty(prevQty => {
-            return prevQty - 1
-        })
-    }
-
-    function handleChange(e) {
-        if (productQty > 99) {
-            setProductQty(99)
-        } else {
-            setProductQty(e.target.value)
-        }
-    }
+    // const [productQty, setProductQty] = useState(1)
+    const {productQty, incrementQty, decrementQty, handleChange} = useChangeProductQuantity({title})
 
     return (
         <div>
