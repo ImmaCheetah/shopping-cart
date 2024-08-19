@@ -20,8 +20,8 @@ export default function useChangeProductQuantity({title}) {
                     if (product.title === item.title) {
                         return {
                             ...product,
+                            productQty: item.productQty + 1,
                             totalPrice: item.price * item.productQty,
-                            productQty: item.productQty + 1
                         }
                     } else {
                         return product

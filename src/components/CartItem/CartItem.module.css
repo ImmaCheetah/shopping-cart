@@ -1,3 +1,7 @@
 .cartImg {
     width: 80px;
 }
+
+.cartItemDiv {
+    padding: 1rem;
+}

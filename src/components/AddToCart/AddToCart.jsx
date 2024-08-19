@@ -7,21 +7,98 @@ export default function AddToCart({title, price, imgUrl}) {
     const {cart, setCart} = useOutletContext()
 
     console.log('SHOP PAGE', cart)
-    console.log('CUSTOM HOOK',productQty)
 
     function handleClick() {
-        setCart(prevCart => {
-            return ([
-                ...prevCart, 
-                {
-                    title,
-                    price,
-                    imgUrl,
-                    productQty,
-                    totalPrice: productQty * price
-                }
-            ])
-        })
+        if (cart.length === 0) {
+            setCart(prevCart => {
+                return ([
+                    ...prevCart, 
+                    {
+                        title,
+                        price,
+                        imgUrl,
+                        productQty,
+                        totalPrice: productQty * price
+                    }
+                ])
+            })
+        } else {
+            setCart(prevCart => {
+                console.log('PREV CART IN ELSE', prevCart)
+                return prevCart.map((product => {
+                    console.log('MAP PRODUCT TITLE',product.title)
+                    if (product.title === title) {
+                        return {
+                            ...product,
+                            productQty: productQty
+                        }
+                    } else {
+                        return ([
+                            ...prevCart, 
+                            {
+                                title,
+                                price,
+                                imgUrl,
+                                productQty,
+                                totalPrice: productQty * price
+                            }
+                        ])
+                    }
+                })) 
+            })
+        }
+        // setCart(prevCart => {
+        //     console.log('LENGTH',prevCart.length)
+        //     if (cart.length === 0) {
+        //         console.log('IF')
+        //         return ([
+        //             ...prevCart, 
+        //             {
+        //                 title,
+        //                 price,
+        //                 imgUrl,
+        //                 productQty,
+        //                 totalPrice: productQty * price
+        //             }
+        //         ])
+        //     } else {
+        //         prevCart.map((product => {
+        //             console.log('MAP PRODUCT TITLE',product.title)
+        //             if (product.title === title) {
+        //                 return {
+        //                     ...product,
+        //                     productQty: productQty
+        //                 }
+        //             } else {
+        //                 return product
+        //             }
+        //         })) 
+        //     }
+        //     console.log('SUBMIT CART', cart)
+        //     return (
+        //         prevCart.map((product => {
+        //             console.log('MAP PRODUCT TITLE',product.title)
+        //             if (product.title === title) {
+        //                 return {
+        //                     ...product,
+        //                     productQty: productQty
+        //                 }
+        //             } else {
+        //                 console.log('ELSE',title)
+        //                 return ([
+        //                     ...prevCart, 
+        //                     {
+        //                         title,
+        //                         price,
+        //                         imgUrl,
+        //                         productQty,
+        //                         totalPrice: productQty * price
+        //                     }
+        //                 ])
+        //             }
+        //         }))
+        //     )
+        // })
 
         setProductQty(1);
     }
