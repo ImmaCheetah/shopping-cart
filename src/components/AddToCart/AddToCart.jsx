@@ -28,13 +28,11 @@ export default function AddToCart({ title, price, imgUrl, id }) {
       setCart((prevCart) => {
         return prevCart.map((product) => {
           if (product.title === title) {
-            console.log('here')
             return {
               ...product,
               productQty: product.productQty + productQty,
             };
           } else {
-            console.log('else here')
             return product
           }
         });
