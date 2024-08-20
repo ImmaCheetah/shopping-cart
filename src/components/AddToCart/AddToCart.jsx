@@ -30,7 +30,7 @@ export default function AddToCart({title, price, imgUrl}) {
                     if (product.title === title) {
                         return {
                             ...product,
-                            productQty: productQty
+                            productQty: product.productQty + productQty
                         }
                     } else {
                         return ([
