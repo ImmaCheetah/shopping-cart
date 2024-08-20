@@ -1,6 +1,4 @@
-
-export default function Checkout({total}) {
-
+export default function Checkout({ total }) {
   return (
     <div>
       <h5>Subtotal: {total}</h5>
@@ -8,5 +6,5 @@ export default function Checkout({total}) {
       <h4>Total: {total}</h4>
       <button>Checkout</button>
     </div>
-  )
+  );
 }

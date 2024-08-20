@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import useChangeProductQuantity from "../../useChangeProductQuantity";
+import styles from './AddToCart.module.css'
 
 export default function AddToCart({ title, price, imgUrl, id }) {
   const [productQty, setProductQty] = useState(1);
@@ -9,7 +9,7 @@ export default function AddToCart({ title, price, imgUrl, id }) {
   // console.log('SHOP PAGE', cart)
 
   function handleClick() {
-    console.log(cart)
+    console.log(cart);
     if (!isInArray(cart)) {
       setCart((prevCart) => {
         return [
@@ -33,7 +33,7 @@ export default function AddToCart({ title, price, imgUrl, id }) {
               productQty: product.productQty + productQty,
             };
           } else {
-            return product
+            return product;
           }
         });
       });
@@ -67,22 +67,22 @@ export default function AddToCart({ title, price, imgUrl, id }) {
     if (productQty > 99) {
       setProductQty(99);
     } else {
-      setProductQty(e.target.value);
+      setProductQty(parseInt(e.target.value));
     }
   }
 
   return (
-    <div>
-      <button onClick={decrementQty}>-</button>
-      <label htmlFor="productQty">Qty</label>
+    <div className={styles.addToCartDiv}>
+      <label htmlFor="productQty"></label>
+      <button className={styles.changeQtyBtn} onClick={decrementQty}>-</button>
       <input
         id="productQty"
         type="number"
         value={productQty}
         onChange={handleChange}
       />
-      <button onClick={incrementQty}>+</button>
-      <button onClick={handleClick}>Add to Cart</button>
+      <button className={styles.changeQtyBtn} onClick={incrementQty}>+</button>
+      <button className={styles.addToCartBtn} onClick={handleClick}>Add to Cart</button>
     </div>
   );
 }

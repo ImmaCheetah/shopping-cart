@@ -1,0 +1,42 @@
+.addToCartDiv {
+  display: flex;
+  gap: 0.4rem;
+  width: 30rem;
+  height: 2rem;
+  align-items: center;
+}
+
+button {
+  appearance: none;
+  padding: 0.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+input {
+  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  appearance: none;
+  border: solid 1px gray;
+  text-align: center;
+}
+
+button, input {
+  border-radius: 0.4rem;
+}
+
+.changeQtyBtn {
+  background-color: rgb(38, 39, 39);
+  font-size: 1.8rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 12px;
+}
+
+.addToCartBtn {
+  background-color: rgb(38, 39, 39);
+  width: 6em;
+}

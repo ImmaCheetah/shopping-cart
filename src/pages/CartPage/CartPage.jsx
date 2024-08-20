@@ -14,33 +14,33 @@ export default function CartPage() {
   }
 
   function calculateTotal() {
-    return cart.reduce((acc, item) => acc + item.totalPrice, 0)
+    return cart.reduce((acc, item) => acc + item.totalPrice, 0);
   }
 
-  const sumTotal = calculateTotal()
+  const sumTotal = calculateTotal();
 
   console.log("CART PAGE", cart);
   return (
     <>
       <h1>Cart</h1>
-        <div>
-            {cart &&
-            cart.map((item, index) => {
-                return (
-                <CartItem
-                    key={item.id}
-                    title={item.title}
-                    totalPrice={item.totalPrice}
-                    quantity={item.productQty}
-                    imgUrl={item.imgUrl}
-                    deleteItem={() => deleteItem(item.id)}
-                />
-                );
-            })}
-        </div>
-        <div>
-            <Checkout total={sumTotal}/>
-        </div>
+      <div>
+        {cart &&
+          cart.map((item, index) => {
+            return (
+              <CartItem
+                key={item.id}
+                title={item.title}
+                totalPrice={item.totalPrice}
+                quantity={item.productQty}
+                imgUrl={item.imgUrl}
+                deleteItem={() => deleteItem(item.id)}
+              />
+            );
+          })}
+      </div>
+      <div>
+        <Checkout total={sumTotal} />
+      </div>
     </>
   );
 }

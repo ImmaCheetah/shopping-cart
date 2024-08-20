@@ -19,7 +19,7 @@ export default function useChangeProductQuantity({ title }) {
           return {
             ...product,
             productQty: item.productQty + 1,
-            totalPrice: item.price * item.productQty,
+            totalPrice: item.price * (item.productQty + 1),
           };
         } else {
           return product;
@@ -39,6 +39,7 @@ export default function useChangeProductQuantity({ title }) {
           return {
             ...product,
             productQty: item.productQty - 1,
+            totalPrice: item.price * (item.productQty - 1)
           };
         } else {
           return product;
