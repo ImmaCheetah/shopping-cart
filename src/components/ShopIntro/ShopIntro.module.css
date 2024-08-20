@@ -1,16 +1,16 @@
 .welcomeDiv {
-    text-align: center;
+  text-align: center;
 }
 
 .buyBtn {
-    appearance: none;
-    border: none;
-    padding: 0.6rem 1rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    border-radius: 0.3rem;
-    color: white;
-    background-color: #343333;
-    box-shadow: 5px 5px 10px -6px #000000;
-    cursor: pointer;
+  appearance: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: #343333;
+  box-shadow: 5px 5px 10px -6px #000000;
+  cursor: pointer;
 }

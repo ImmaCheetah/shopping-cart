@@ -1,40 +1,38 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ShopIntro from '../components/ShopIntro/ShopIntro';
-import { RouterProvider, createMemoryRouter } from 'react-router-dom';
-import routes from '../routes';
+import ShopIntro from "../components/ShopIntro/ShopIntro";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import routes from "../routes";
 
+describe("Shop Intro", () => {
+  const router = createMemoryRouter(routes);
 
-describe('Shop Intro', () => {
-    const router = createMemoryRouter(routes)
+  it("should render Start Buying button", () => {
+    render(
+      <RouterProvider router={router}>
+        <ShopIntro />
+      </RouterProvider>,
+    );
+    screen.debug();
 
-    it('should render Start Buying button', () => {
-        render (
-            <RouterProvider router={router}>
-                <ShopIntro />
-            </RouterProvider>
-        )
-        screen.debug()
+    const button = screen.getByRole("button", { name: /start buying/i });
 
-        const button = screen.getByRole('button', {name: /start buying/i})
+    expect(button).toBeInTheDocument();
+  });
 
-        expect(button).toBeInTheDocument()
-    })
+  it("should go to shop page when button clicked", async () => {
+    render(
+      <RouterProvider router={router}>
+        <ShopIntro />
+      </RouterProvider>,
+    );
 
-    it('should go to shop page when button clicked', async () => {
-        render (
-            <RouterProvider router={router}>
-                <ShopIntro />
-            </RouterProvider>
-        )
-        
-        const user = userEvent.setup()
-        const button = screen.getByRole('button', {name: /start buying/i})
+    const user = userEvent.setup();
+    const button = screen.getByRole("button", { name: /start buying/i });
 
-        await user.click(button)
+    await user.click(button);
 
-        expect(screen.getByRole('heading', {name: /items/i}))
-    })
-    
-})
+    expect(screen.getByRole("heading", { name: /items/i }));
+  });
+});

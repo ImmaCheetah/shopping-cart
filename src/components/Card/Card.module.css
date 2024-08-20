@@ -1,10 +1,10 @@
 .productImage {
-    width: 100px;
-    align-self: center;
+  width: 100px;
+  align-self: center;
 }
 
 .productCard {
-    display: flex;
-    flex-direction: column;
-    width: 10rem;
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
 }

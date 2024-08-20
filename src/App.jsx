@@ -1,44 +1,44 @@
-import { useState, useEffect } from 'react'
-import { Outlet } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import './App.css'
-import Navbar from './components/Navbar/Navbar';
+import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
-  const [storeData, setStoreData] = useState()
-  const [error, setError] = useState(null)
-  const [cart, setCart] = useState([])
+  const [storeData, setStoreData] = useState();
+  const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
   // const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
-    if(!localStorage.getItem('storageData')) {
-      fetch('https://fakestoreapi.com/products?limit=2')
+    if (!localStorage.getItem("storageData")) {
+      fetch("https://fakestoreapi.com/products?limit=2")
         .then((response) => {
           if (response.status >= 400) {
             throw new Error("server error");
           }
           return response.json();
         })
-        .then(data => {
-          setStoreData(data)
-          localStorage.setItem('storageData', JSON.stringify(data))
+        .then((data) => {
+          setStoreData(data);
+          localStorage.setItem("storageData", JSON.stringify(data));
         })
-        .catch((error) => setError(error))
-      }
+        .catch((error) => setError(error));
+    }
 
-      // .finally(() => setLoading(false));
-    }, [])
-  
+    // .finally(() => setLoading(false));
+  }, []);
+
   // if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>
+  if (error) return <p>A network error was encountered</p>;
 
   return (
     <>
       <header>
-        <Navbar cartQuantity={cart.length && cart.length}/>
+        <Navbar cartQuantity={cart.length && cart.length} />
       </header>
       <main>
-        <Outlet context={{storeData, setStoreData, cart, setCart}}/>
+        <Outlet context={{ storeData, setStoreData, cart, setCart }} />
       </main>
     </>
   );
@@ -52,4 +52,4 @@ RenderName.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default App
+export default App;
