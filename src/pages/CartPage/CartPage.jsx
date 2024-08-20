@@ -5,6 +5,13 @@ import CartItem from '../../components/CartItem/CartItem'
 export default function CartPage() {
     const {cart, setCart} = useOutletContext()
 
+    function deleteItem(id) {
+        const newCart = cart.filter((item) => {
+            return item.id !== id
+        })
+        setCart(newCart)
+    }
+
     console.log('CART PAGE', cart)
     return (
         <>
@@ -12,11 +19,12 @@ export default function CartPage() {
             {cart && cart.map((item, index) => {
                 return (
                     <CartItem 
-                        key={index}
+                        key={item.id}
                         title={item.title}
                         totalPrice={item.totalPrice}
                         quantity={item.productQty}
                         imgUrl={item.imgUrl}
+                        deleteItem={() => deleteItem(item.id)}
                     />
                 )
             })}

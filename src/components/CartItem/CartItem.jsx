@@ -2,8 +2,7 @@ import { useState } from 'react'
 import styles from './CartItem.module.css'
 import useChangeProductQuantity from '../../useChangeProductQuantity'
 
-export default function CartItem({title, totalPrice, quantity, imgUrl}) {
-    // const [productQty, setProductQty] = useState(1)
+export default function CartItem({title, totalPrice, imgUrl, deleteItem,}) {
     const {productQty, incrementQty, decrementQty, handleChange} = useChangeProductQuantity({title})
 
     return (
@@ -16,6 +15,7 @@ export default function CartItem({title, totalPrice, quantity, imgUrl}) {
             <label htmlFor="productQty">Qty</label>
             <input id="productQty" type="number" value={productQty} onChange={handleChange}/>
             <button onClick={incrementQty}>+</button>
+            <button onClick={deleteItem}>Delete</button>
         </div>
     )
 }

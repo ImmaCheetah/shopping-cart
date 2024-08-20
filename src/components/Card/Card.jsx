@@ -2,7 +2,7 @@ import styles from './Card.module.css'
 
 import AddToCart from '../AddToCart/AddToCart'
 
-export default function Card({title, price, imgUrl}) {
+export default function Card({title, price, imgUrl, id}) {
     
     return (
         <div className={styles.productCard}>
@@ -10,6 +10,7 @@ export default function Card({title, price, imgUrl}) {
             <p>{title}</p>
             <p>{price}</p>
             <AddToCart
+                id={id}
                 title={title}
                 price={price}
                 imgUrl={imgUrl}

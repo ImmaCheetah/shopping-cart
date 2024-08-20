@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useOutletContext } from "react-router-dom";
 import useChangeProductQuantity from "../../useChangeProductQuantity";
 
-export default function AddToCart({title, price, imgUrl}) {
+export default function AddToCart({title, price, imgUrl, id}) {
     const [productQty, setProductQty] = useState(1)
     const {cart, setCart} = useOutletContext()
 
@@ -13,7 +13,8 @@ export default function AddToCart({title, price, imgUrl}) {
             setCart(prevCart => {
                 return ([
                     ...prevCart, 
-                    {
+                    {   
+                        id,
                         title,
                         price,
                         imgUrl,
@@ -35,7 +36,8 @@ export default function AddToCart({title, price, imgUrl}) {
                     } else {
                         return ([
                             ...prevCart, 
-                            {
+                            {   
+                                id,
                                 title,
                                 price,
                                 imgUrl,

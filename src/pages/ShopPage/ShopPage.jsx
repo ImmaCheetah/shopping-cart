@@ -19,6 +19,7 @@ export default function ShopPage() {
                 return (
                     <Card 
                       key={product.id}
+                      id={product.id}
                       title={product.title}
                       price={product.price}
                       imgUrl={product.image}
