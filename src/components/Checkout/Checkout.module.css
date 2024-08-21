@@ -1,0 +1,40 @@
+.checkoutDiv {
+  display: flex;
+  flex-direction: column;
+  height: 30rem;
+  width: 20rem;
+  background-color: white;
+  border: solid 1px black;
+  box-shadow: 10px 10px 0px 0px rgb(0, 0, 0);
+  padding: 1rem;
+}
+
+.checkoutText{
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+.checkoutTotalsDiv {
+  margin-top: auto;
+}
+
+.checkoutTotalsDiv > h5 {
+  font-size: 1.5rem;
+}
+
+.checkoutTotalsDiv > h4 {
+  font-size: 2rem;
+}
+
+.checkoutBtn {
+  appearance: none;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: bisque;
+  width: 4em;
+  font-size: 2rem;
+  border: none;
+  color: black;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
+  cursor: pointer;
+}

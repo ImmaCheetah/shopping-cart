@@ -17,11 +17,11 @@ nav {
 
 .navBtn {
   appearance: none;
-  background-color: transparent;
-  color: white;
+  padding: 0.4rem;
+  background-color: bisque;
   font-size: 1.5rem;
   border: none;
-  border-radius: 1rem;
-  padding: 0.5rem 0.6rem;
+  color: black;
+  box-shadow: 4px 4px 0px 0px white;
   cursor: pointer;
 }

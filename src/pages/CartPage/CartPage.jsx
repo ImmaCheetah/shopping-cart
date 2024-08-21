@@ -21,8 +21,8 @@ export default function CartPage() {
 
   console.log("CART PAGE", cart);
   return (
+    // <h1>Cart</h1>
       <div className={styles.cartPageDiv}>
-      <h1>Cart</h1>
         <div className={styles.cartItemsDiv}>
           {cart &&
             cart.map((item, index) => {
@@ -39,9 +39,7 @@ export default function CartPage() {
               );
             })}
         </div>
-        <div className={styles.checkoutDiv}>
-          <Checkout total={sumTotal.toFixed(2)} />
-        </div>
+        <Checkout total={sumTotal.toFixed(2)} />
       </div>
   );
 }

@@ -104,3 +104,9 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+button:active {
+  box-shadow: none;
+  transform: translateY(4px) translateX(4px);
+  transition: 100ms ease-in-out;
+}
