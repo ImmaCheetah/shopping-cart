@@ -22,24 +22,34 @@ export default function CartPage() {
   console.log("CART PAGE", cart);
   return (
     // <h1>Cart</h1>
+    <>
+    {
+      cart.length === 0 
+      ?
+      <div className={styles.emptyCartText}>
+        <h1>Go add some stuff to the cart</h1>
+      </div>
+      : 
       <div className={styles.cartPageDiv}>
         <div className={styles.cartItemsDiv}>
           {cart &&
             cart.map((item, index) => {
               return (
                 <CartItem
-                  key={item.id}
-                  title={item.title}
-                  price={item.price}
-                  totalPrice={item.totalPrice}
-                  quantity={item.productQty}
-                  imgUrl={item.imgUrl}
-                  deleteItem={() => deleteItem(item.id)}
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                totalPrice={item.totalPrice}
+                quantity={item.productQty}
+                imgUrl={item.imgUrl}
+                deleteItem={() => deleteItem(item.id)}
                 />
               );
             })}
         </div>
         <Checkout total={sumTotal.toFixed(2)} />
       </div>
+    }
+    </>
   );
 }
