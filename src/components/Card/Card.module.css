@@ -1,10 +1,27 @@
-.productImage {
-  width: 100px;
+.itemImage {
+  width: 120px;
+  height: 120px;
   align-self: center;
+  object-fit: contain;
 }
 
-.productCard {
+.itemCard {
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  justify-content: space-between;
+  width: 18rem;
+  height: 23rem;
+  border: solid 1px black;
+  background-color: white;
+  gap: 1rem;
+  padding: 1rem;
+  box-shadow: 10px 10px 0px 0px rgb(0, 0, 0);
+}
+
+.itemPrice,.itemTitle {
+  text-align: center;
+}
+
+.itemPrice {
+  align-self: ;
 }

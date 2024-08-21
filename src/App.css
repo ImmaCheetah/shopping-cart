@@ -1,6 +1,8 @@
 /* CSS Reset from https://piccalil.li/blog/a-more-modern-css-reset/
 by Andy Bell */
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 /* Box sizing rules */
 *,
 *::before,
@@ -45,6 +47,10 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
 }
 
 /* Set shorter line heights on headings and interactive elements */

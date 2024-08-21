@@ -78,6 +78,8 @@ export default function AddToCart({ title, price, imgUrl, id }) {
       <input
         id="productQty"
         type="number"
+        min={1}
+        max={99}
         value={productQty}
         onChange={handleChange}
       />

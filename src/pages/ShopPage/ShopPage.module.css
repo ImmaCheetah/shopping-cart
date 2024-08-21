@@ -1,0 +1,11 @@
+.shopDiv {
+  background-color: rgb(250, 222, 188);
+  padding: 2rem 15rem ;
+}
+
+.itemsDiv {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

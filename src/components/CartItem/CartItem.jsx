@@ -17,6 +17,8 @@ export default function CartItem({ title, totalPrice, imgUrl, deleteItem }) {
       <input
         id="productQty"
         type="number"
+        min={1}
+        max={99}
         value={productQty}
         onChange={handleChange}
       />

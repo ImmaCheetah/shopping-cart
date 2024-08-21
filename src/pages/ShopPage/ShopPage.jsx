@@ -11,20 +11,22 @@ export default function ShopPage() {
   }, []);
 
   return (
-    <>
+    <div className={styles.shopDiv}>
       <h1>Items</h1>
-      {storeData &&
-        storeData.map((product) => {
-          return (
-            <Card
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              price={product.price}
-              imgUrl={product.image}
-            />
-          );
-        })}
-    </>
+      <div className={styles.itemsDiv}>
+        {storeData &&
+          storeData.map((product) => {
+            return (
+              <Card
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={product.price}
+                imgUrl={product.image}
+              />
+            );
+          })}
+      </div>
+    </div>
   );
 }

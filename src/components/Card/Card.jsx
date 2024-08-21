@@ -4,10 +4,10 @@ import AddToCart from "../AddToCart/AddToCart";
 
 export default function Card({ title, price, imgUrl, id }) {
   return (
-    <div className={styles.productCard}>
-      <img src={imgUrl} alt="" className={styles.productImage} />
-      <p>{title}</p>
-      <p>{price}</p>
+    <div className={styles.itemCard}>
+      <h2 className={styles.itemTitle}>{title}</h2>
+      <img src={imgUrl} alt="" className={styles.itemImage} />
+      <h3 className={styles.itemPrice}>${price}</h3>
       <AddToCart id={id} title={title} price={price} imgUrl={imgUrl} />
     </div>
   );
