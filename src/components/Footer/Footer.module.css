@@ -1,0 +1,34 @@
+.footerDiv {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6rem;
+  background-color: rgb(40, 39, 39);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 18rem;
+}
+
+.footerText {
+  color: white;
+  font-weight: 350;
+  width: 50em;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+
+.footerLinks > a {
+  font-size: 0.9rem;
+  color: white;
+  text-decoration: none;
+  text-align: start;
+}
+
+.footerLinks > a:hover {
+  text-decoration: underline;
+}

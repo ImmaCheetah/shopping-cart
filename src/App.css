@@ -44,7 +44,7 @@ ol[role="list"] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  /* min-height: 90vh; */
   line-height: 1.5;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
@@ -52,6 +52,8 @@ body {
   /* font-weight: <weight>; */
   font-style: normal;
   background-color: rgb(250, 222, 188);
+  position: relative;
+  min-height: 100vh;
 }
 
 /* Set shorter line heights on headings and interactive elements */

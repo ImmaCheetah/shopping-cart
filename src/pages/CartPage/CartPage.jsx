@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import styles from "./CartPage.module.css";
 import CartItem from "../../components/CartItem/CartItem";
 import Checkout from "../../components/Checkout/Checkout";
+import Footer from "../../components/Footer/Footer";
 
 export default function CartPage() {
   const { cart, setCart } = useOutletContext();
@@ -33,7 +34,7 @@ export default function CartPage() {
       <div className={styles.cartPageDiv}>
         <div className={styles.cartItemsDiv}>
           {cart &&
-            cart.map((item, index) => {
+            cart.map((item) => {
               return (
                 <CartItem
                 key={item.id}
@@ -50,6 +51,7 @@ export default function CartPage() {
         <Checkout total={sumTotal.toFixed(2)} />
       </div>
     }
+    <Footer />
     </>
   );
 }

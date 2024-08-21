@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 export default function Navbar({ cartQuantity }) {
   return (
     <nav>
-      <h1 className={styles.shopName}>Store Name</h1>
+      <h1 className={styles.shopName}>Bare</h1>
       <NavLink to="/">
         <button className={styles.navBtn}>Home</button>
       </NavLink>
@@ -17,3 +17,4 @@ export default function Navbar({ cartQuantity }) {
     </nav>
   );
 }
+
