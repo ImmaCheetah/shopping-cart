@@ -14,7 +14,7 @@ export default function ShopPage() {
   return (
     <>
     <div className={styles.shopDiv}>
-      <h1>Items</h1>
+      <h1 className={styles.shopTitle}>Our Products</h1>
       <div className={styles.itemsDiv}>
         {storeData &&
           storeData.map((product) => {
@@ -30,7 +30,6 @@ export default function ShopPage() {
           })}
       </div>
     </div>
-    <Footer />
     </>
   );
 }

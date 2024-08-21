@@ -1,6 +1,6 @@
 .shopDiv {
   background-color: rgb(250, 222, 188);
-  padding: 2rem 15rem ;
+  padding: 0 15rem ;
 }
 
 .itemsDiv {
@@ -8,4 +8,11 @@
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.shopTitle {
+  text-align: center;
+  padding: 2rem;
+  font-size: 2.5rem;
+  color: black;
 }

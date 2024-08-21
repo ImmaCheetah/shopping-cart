@@ -44,16 +44,13 @@ ol[role="list"] {
 
 /* Set core body defaults */
 body {
-  /* min-height: 90vh; */
   line-height: 1.5;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
-  /* font-weight: <weight>; */
   font-style: normal;
-  background-color: rgb(250, 222, 188);
+  background-color: bisque;
   position: relative;
-  min-height: 100vh;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -111,4 +108,12 @@ button:active {
   box-shadow: none;
   transform: translateY(4px) translateX(4px);
   transition: 100ms ease-in-out;
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
 }

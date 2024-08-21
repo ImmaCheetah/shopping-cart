@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-
+import Footer from "./components/Footer/Footer";
 const App = () => {
   const [storeData, setStoreData] = useState();
   const [error, setError] = useState(null);
@@ -33,14 +33,15 @@ const App = () => {
   if (error) return <p>A network error was encountered</p>;
 
   return (
-    <>
+    <div className="mainDiv">
       <header>
         <Navbar cartQuantity={cart.length} />
       </header>
       <main>
         <Outlet context={{ storeData, setStoreData, cart, setCart }} />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 };
 

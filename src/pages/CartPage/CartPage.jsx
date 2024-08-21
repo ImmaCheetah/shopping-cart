@@ -22,8 +22,10 @@ export default function CartPage() {
 
   console.log("CART PAGE", cart);
   return (
-    // <h1>Cart</h1>
     <>
+    {
+      cart.length !== 0 && <h1 className={styles.cartTitle}>Cart</h1>
+    }
     {
       cart.length === 0 
       ?
@@ -51,7 +53,6 @@ export default function CartPage() {
         <Checkout total={sumTotal.toFixed(2)} />
       </div>
     }
-    <Footer />
     </>
   );
 }
