@@ -1,7 +1,80 @@
 .cartImg {
-  width: 80px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 1rem;
 }
 
 .cartItemDiv {
+  display: flex;
+  border: solid 1px black;
+  width: 40rem;
   padding: 1rem;
+  background-color: white;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
 }
+
+.itemInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qtyChangeDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.totalInfoDiv {
+  margin-left: auto;
+  width: 8rem;
+}
+
+.qtyInput {
+  width: 3rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  appearance: none;
+  border: solid 1px gray;
+  text-align: center;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
+}
+h4 {
+  
+}
+
+.changeQtyBtn {
+  background-color: bisque;
+  font-weight: bold;
+  font-size: 1.8rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 12px;
+  appearance: none;
+  padding: 0.5rem;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
+}
+
+.deleteBtn {
+  appearance: none;
+  padding: 0.5rem;
+  background-color: bisque;
+  width: 4em;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
+}
+
+.totalInfo {
+  font-size: 1.5rem;
+}
+
+

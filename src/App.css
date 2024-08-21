@@ -51,6 +51,7 @@ body {
   font-optical-sizing: auto;
   /* font-weight: <weight>; */
   font-style: normal;
+  background-color: rgb(250, 222, 188);
 }
 
 /* Set shorter line heights on headings and interactive elements */

@@ -21,26 +21,27 @@ export default function CartPage() {
 
   console.log("CART PAGE", cart);
   return (
-    <>
+      <div className={styles.cartPageDiv}>
       <h1>Cart</h1>
-      <div>
-        {cart &&
-          cart.map((item, index) => {
-            return (
-              <CartItem
-                key={item.id}
-                title={item.title}
-                totalPrice={item.totalPrice}
-                quantity={item.productQty}
-                imgUrl={item.imgUrl}
-                deleteItem={() => deleteItem(item.id)}
-              />
-            );
-          })}
+        <div className={styles.cartItemsDiv}>
+          {cart &&
+            cart.map((item, index) => {
+              return (
+                <CartItem
+                  key={item.id}
+                  title={item.title}
+                  price={item.price}
+                  totalPrice={item.totalPrice}
+                  quantity={item.productQty}
+                  imgUrl={item.imgUrl}
+                  deleteItem={() => deleteItem(item.id)}
+                />
+              );
+            })}
+        </div>
+        <div className={styles.checkoutDiv}>
+          <Checkout total={sumTotal.toFixed(2)} />
+        </div>
       </div>
-      <div>
-        <Checkout total={sumTotal} />
-      </div>
-    </>
   );
 }

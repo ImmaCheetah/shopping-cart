@@ -1,0 +1,14 @@
+.cartPageDiv {
+  /* background-color: rgb(250, 222, 188); */
+  padding: 2rem 15rem ;
+}
+
+.cartItemsDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 42rem;
+  max-height: 40rem;
+  overflow-y: scroll;
+}

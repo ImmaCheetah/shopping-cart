@@ -35,7 +35,7 @@ const App = () => {
   return (
     <>
       <header>
-        <Navbar cartQuantity={cart.length && cart.length} />
+        <Navbar cartQuantity={cart.length} />
       </header>
       <main>
         <Outlet context={{ storeData, setStoreData, cart, setCart }} />

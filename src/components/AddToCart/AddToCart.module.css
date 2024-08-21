@@ -6,16 +6,7 @@
   justify-content: center;
 }
 
-button {
-  appearance: none;
-  padding: 0.5rem;
-  border: none;
-  color: black;
-  cursor: pointer;
-  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
-}
-
-input {
+.qtyInput {
   width: 3rem;
   height: 2rem;
   font-size: 1.2rem;
@@ -33,9 +24,21 @@ input {
   height: 2rem;
   text-align: center;
   line-height: 12px;
+  appearance: none;
+  padding: 0.5rem;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
 }
 
 .addToCartBtn {
+  appearance: none;
+  padding: 0.5rem;
   background-color: bisque;
   width: 6em;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px 0px rgb(0, 0, 0);
 }

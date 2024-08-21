@@ -12,7 +12,7 @@ export default function Navbar({ cartQuantity }) {
         <button className={styles.navBtn}>Shop</button>
       </NavLink>
       <NavLink to="cart">
-        <button className={styles.navBtn}>Cart {cartQuantity}</button>
+        <button className={styles.navBtn}>Cart {cartQuantity === 0 ? '' : cartQuantity}</button>
       </NavLink>
     </nav>
   );

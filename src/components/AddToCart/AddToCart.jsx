@@ -76,6 +76,7 @@ export default function AddToCart({ title, price, imgUrl, id }) {
       <label htmlFor="productQty"></label>
       <button className={styles.changeQtyBtn} onClick={decrementQty}>-</button>
       <input
+        className={styles.qtyInput}
         id="productQty"
         type="number"
         min={1}

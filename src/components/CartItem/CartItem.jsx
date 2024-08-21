@@ -2,28 +2,38 @@ import { useState } from "react";
 import styles from "./CartItem.module.css";
 import useChangeProductQuantity from "../../useChangeProductQuantity";
 
-export default function CartItem({ title, totalPrice, imgUrl, deleteItem }) {
+export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem }) {
   const { productQty, incrementQty, decrementQty, handleChange } =
     useChangeProductQuantity({ title });
 
   return (
     <div className={styles.cartItemDiv}>
-      <img src={imgUrl} alt="" className={styles.cartImg} />
-      <h4>{title}</h4>
-      <h5>{totalPrice}</h5>
-      <h5>Qty: {productQty}</h5>
-      <button onClick={decrementQty}>-</button>
-      <label htmlFor="productQty">Qty</label>
-      <input
-        id="productQty"
-        type="number"
-        min={1}
-        max={99}
-        value={productQty}
-        onChange={handleChange}
-      />
-      <button onClick={incrementQty}>+</button>
-      <button onClick={deleteItem}>Delete</button>
+      <div>
+        <img src={imgUrl} alt="" className={styles.cartImg} />
+      </div>
+      <div className={styles.itemInfoDiv}>
+        <h4>{title}</h4>
+        <h4>${price}</h4>
+        <div className={styles.qtyChangeDiv}>
+          <button className={styles.changeQtyBtn} onClick={decrementQty}>-</button>
+          {/* <label htmlFor="productQty"></label> */}
+          <input
+            className={styles.qtyInput}
+            id="productQty"
+            type="number"
+            min={1}
+            max={99}
+            value={productQty}
+            onChange={handleChange}
+          />
+          <button className={styles.changeQtyBtn} onClick={incrementQty}>+</button>
+          <button className={styles.deleteBtn} onClick={deleteItem}>Delete</button>
+        </div>
+      </div>
+      <div className={styles.totalInfoDiv}>
+        <h5 className={styles.totalInfo }>Quantity: {productQty}</h5>
+        <h5 className={styles.totalInfo }>${totalPrice.toFixed(2)}</h5>
+      </div>
     </div>
   );
 }
