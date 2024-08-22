@@ -22,7 +22,7 @@ describe("Quantity changes", () => {
 
     const user = userEvent.setup();
     const plusBtn = screen.getByRole("button", { name: "+" });
-    const input = screen.getByLabelText(/qty/i);
+    const input = screen.getByTestId('qtyInput');
     screen.debug();
 
     await user.click(plusBtn);
@@ -38,7 +38,7 @@ describe("Quantity changes", () => {
 
     const user = userEvent.setup();
     const minusBtn = screen.getByRole("button", { name: "-" });
-    const input = screen.getByLabelText(/qty/i);
+    const input = screen.getByTestId('qtyInput');
     screen.debug();
 
     await user.click(minusBtn);
@@ -53,11 +53,28 @@ describe("Quantity changes", () => {
     });
     const user = userEvent.setup();
     const addBtn = screen.getByText("Add to Cart");
-    const cartLink = screen.getByRole("link", { name: /cart/i });
+    const cartLink = screen.getByTestId('cartLink');
     screen.debug();
 
     await user.click(addBtn);
 
     expect(cartLink.textContent).toBe("Cart 1");
   });
+
+  it("doesn't change cart number if same item is added", async () => {
+    const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
+    await act(() => {
+      render(<RouterProvider router={router} />);
+    });
+    const user = userEvent.setup();
+    const addBtn = screen.getByText("Add to Cart");
+    const cartLink = screen.getByTestId('cartLink');
+    screen.debug();
+
+    await user.click(addBtn);
+    await user.click(addBtn);
+    await user.click(addBtn);
+
+    expect(cartLink.textContent).toBe("Cart 1");
+  })
 });

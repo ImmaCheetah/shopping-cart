@@ -13,9 +13,9 @@ it("shows all nav buttons", () => {
     </RouterProvider>,
   );
 
-  expect(screen.getByRole("link", { name: /home/i }));
-  expect(screen.getByRole("link", { name: /shop/i }));
-  expect(screen.getByRole("link", { name: /cart/i }));
+  expect(screen.getByTestId('homeLink'));
+  expect(screen.getByTestId('shopLink'));
+  expect(screen.getByTestId('cartLink'));
 });
 
 it("goes to shop after click", async () => {
@@ -25,10 +25,10 @@ it("goes to shop after click", async () => {
     </RouterProvider>,
   );
   const user = userEvent.setup();
-  const shopLink = screen.getByRole("link", { name: /shop/i });
+  const shopLink = screen.getByTestId('shopLink');
   await user.click(shopLink);
 
-  expect(screen.getByRole("heading", { name: /items/i }));
+  expect(screen.getByRole("heading", { name: /our products/i }));
 });
 
 it("goes to cart after click", async () => {
@@ -38,7 +38,7 @@ it("goes to cart after click", async () => {
     </RouterProvider>,
   );
   const user = userEvent.setup();
-  const cartLink = screen.getByRole("link", { name: /cart/i });
+  const cartLink = screen.getByTestId('cartLink');
   await user.click(cartLink);
 
   expect(screen.getByRole("heading", { name: /cart/i }));
@@ -51,8 +51,8 @@ it("goes to home after click", async () => {
     </RouterProvider>,
   );
   const user = userEvent.setup();
-  const shopLink = screen.getByRole("link", { name: /shop/i });
-  const homeLink = screen.getByRole("link", { name: /home/i });
+  const shopLink = screen.getByTestId('shopLink');
+  const homeLink = screen.getByTestId('homeLink');
   await user.click(shopLink);
   await user.click(homeLink);
 

@@ -78,6 +78,7 @@ export default function AddToCart({ title, price, imgUrl, id }) {
       <input
         className={styles.qtyInput}
         id="productQty"
+        data-testid="qtyInput"
         type="number"
         min={1}
         max={99}

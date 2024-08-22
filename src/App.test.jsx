@@ -38,7 +38,7 @@ describe("fetching", () => {
       </RouterProvider>,
     );
     const user = userEvent.setup();
-    const shopLink = screen.getByRole("link", { name: /shop/i });
+    const shopLink = screen.getByTestId('shopLink');
 
     await user.click(shopLink);
     const fetchData = await screen.findByText("shirt");
@@ -60,9 +60,9 @@ describe("page navigation", () => {
     const welcomeText = screen.getByRole("heading", { name: /welcome/i });
     expect(welcomeText).toBeInTheDocument();
 
-    await user.click(screen.getByRole("link", { name: /shop/i }));
+    await user.click(screen.getByTestId('shopLink'));
 
-    expect(screen.getByRole("heading", { name: /items/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /our products/i })).toBeInTheDocument();
   });
 
   it("error page", () => {

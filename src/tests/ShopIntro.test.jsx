@@ -33,6 +33,6 @@ describe("Shop Intro", () => {
 
     await user.click(button);
 
-    expect(screen.getByRole("heading", { name: /items/i }));
+    expect(screen.getByRole("heading", { name: /our products/i }));
   });
 });
