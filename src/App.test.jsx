@@ -5,10 +5,6 @@ import App from "./App";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import routes from "./routes";
 
-// afterEach(() => {
-//   cleanup()
-// })
-
 global.fetch = vi.fn(() => {
   const data = [{ id: "1", title: "shirt" }];
 
