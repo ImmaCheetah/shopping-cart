@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./CartItem.module.css";
 import useChangeProductQuantity from "../../useChangeProductQuantity";
 
