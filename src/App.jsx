@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 const App = () => {
   const [storeData, setStoreData] = useState();
   const [error, setError] = useState(null);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) ?? []);
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {

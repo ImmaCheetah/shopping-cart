@@ -18,6 +18,7 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
           {/* <label htmlFor="productQty"></label> */}
           <input
             className={styles.qtyInput}
+            data-testid='qtyInput'
             id="productQty"
             type="number"
             min={1}
@@ -30,8 +31,18 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
         </div>
       </div>
       <div className={styles.totalInfoDiv}>
-        <h5 className={styles.totalInfo }>Quantity: {productQty}</h5>
-        <h5 className={styles.totalInfo }>${totalPrice.toFixed(2)}</h5>
+        <h5 
+          className={styles.totalInfo} 
+          data-testid='totalQty'
+        >
+          Quantity: {productQty}
+        </h5>
+        <h5 
+          className={styles.totalInfo} 
+          data-testid='totalPrice'
+        >
+          ${totalPrice.toFixed(2)}
+        </h5>
       </div>
     </div>
   );
