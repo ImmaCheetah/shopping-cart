@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import PropTypes from "prop-types";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -8,7 +7,6 @@ const App = () => {
   const [storeData, setStoreData] = useState();
   const [error, setError] = useState(null);
   const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) ?? []);
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!localStorage.getItem("storageData")) {
@@ -23,13 +21,11 @@ const App = () => {
           setStoreData(data);
           localStorage.setItem("storageData", JSON.stringify(data));
         })
-        .catch((error) => setError(error));
+        .catch((error) => setError(error))
     }
 
-    // .finally(() => setLoading(false));
   }, []);
 
-  // if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
 
   return (
@@ -43,14 +39,6 @@ const App = () => {
       <Footer />
     </div>
   );
-};
-
-const RenderName = (props) => {
-  return <div>{props.name}</div>;
-};
-
-RenderName.propTypes = {
-  name: PropTypes.string.isRequired,
 };
 
 export default App;

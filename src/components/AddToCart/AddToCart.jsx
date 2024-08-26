@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import PropTypes from 'prop-types';
 import styles from './AddToCart.module.css'
 
 export default function AddToCart({ title, price, imgUrl, id }) {
   const [productQty, setProductQty] = useState(1);
   const { cart, setCart } = useOutletContext();
-
-  // console.log('SHOP PAGE', cart)
 
   function handleClick() {
     console.log(cart);
@@ -70,7 +69,7 @@ export default function AddToCart({ title, price, imgUrl, id }) {
       setProductQty(parseInt(e.target.value));
     }
   }
-
+  
   return (
     <div className={styles.addToCartDiv}>
       <label htmlFor="productQty"></label>
@@ -90,3 +89,8 @@ export default function AddToCart({ title, price, imgUrl, id }) {
     </div>
   );
 }
+
+AddToCart.propTypes = {
+  title: PropTypes.string,
+  price: PropTypes.number,
+};

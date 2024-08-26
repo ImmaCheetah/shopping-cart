@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footerDiv}>
       <div className={styles.footerText}>
         <h3>Bare</h3>
-        <p>Time to write some more things just to fill up space. Maybe something about how the company was founded and a really touching story to go with it. I honestly have no idea what to say. How's the weather looking? That should be enough right? Let me check </p>
+        <p>Time to write some more things just to fill up space. Maybe something about how the company was founded and a really touching story to go with it. I honestly have no idea what to say. How&apos;s the weather looking? That should be enough right? Let me check </p>
       </div>
       <div className={styles.footerLinks}>
         <NavLink to="/">Home</NavLink>

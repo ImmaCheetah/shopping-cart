@@ -5,7 +5,7 @@ export default function ErrorPage() {
     <>
       <h1>Seems you got lost</h1>
       <p>
-        Return to <Link to={"/"}>Shop</Link>
+        Return to <Link to={"/"}>Home</Link>
       </p>
     </>
   );

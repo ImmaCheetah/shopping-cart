@@ -1,8 +1,9 @@
-# Project Name
+# Shopping Cart
 
-> [Live Website](https://immacheetah.github.io/project-name/)
+> [Live Website](https://bareshop.netlify.app)
 
 ## Preview
+![Shop Page of App](image.png)
 
 ## Tools/Languages
 
@@ -12,10 +13,18 @@
 ## Getting Started
 
 ```
-$ git clone git@github.com:immacheetah/project-name.git
+$ git clone git@github.com:immacheetah/shopping-cart.git
 $ cd project-name
 $ npm install
 $ npm run dev
 ```
 
 ## Learning Outcomes
+- Fetching data and handling it using local storage
+- Testing components using Vitest
+    - Mocking fetch
+- Using React Router to navigate between pages
+- Creating a custom hook
+- Using CSS modules for localized styling
+- Type checking with prop types
+- Utilizing context to mitigate prop drilling

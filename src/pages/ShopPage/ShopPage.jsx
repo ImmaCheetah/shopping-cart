@@ -1,8 +1,7 @@
-import { useOutletContext } from "react-router-dom";
 import styles from "./ShopPage.module.css";
-import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
 import Card from "../../components/Card/Card";
-import Footer from "../../components/Footer/Footer";
 
 export default function ShopPage() {
   const { storeData, setStoreData } = useOutletContext();

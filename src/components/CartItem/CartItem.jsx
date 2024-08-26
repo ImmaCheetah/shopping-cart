@@ -1,5 +1,6 @@
 import styles from "./CartItem.module.css";
-import useChangeProductQuantity from "../../useChangeProductQuantity";
+import useChangeProductQuantity from "../../Hooks/useChangeProductQuantity";
+import PropTypes from 'prop-types';
 
 export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem }) {
   const { productQty, incrementQty, decrementQty, handleChange } =
@@ -15,7 +16,6 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
         <h4>${price}</h4>
         <div className={styles.qtyChangeDiv}>
           <button className={styles.changeQtyBtn} onClick={decrementQty}>-</button>
-          {/* <label htmlFor="productQty"></label> */}
           <input
             className={styles.qtyInput}
             data-testid='qtyInput'
@@ -26,8 +26,18 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
             value={productQty}
             onChange={handleChange}
           />
-          <button className={styles.changeQtyBtn} onClick={incrementQty}>+</button>
-          <button className={styles.deleteBtn} onClick={deleteItem}>Delete</button>
+          <button 
+            className={styles.changeQtyBtn} 
+            onClick={incrementQty}
+          >
+            +
+          </button>
+          <button 
+            className={styles.deleteBtn} 
+            onClick={deleteItem}
+          >
+            Delete
+          </button>
         </div>
       </div>
       <div className={styles.totalInfoDiv}>
@@ -47,3 +57,8 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
     </div>
   );
 }
+
+CartItem.propTypes = {
+  title: PropTypes.string,
+  price: PropTypes.number,
+};

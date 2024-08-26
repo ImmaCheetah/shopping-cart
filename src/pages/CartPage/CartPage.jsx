@@ -1,8 +1,7 @@
-import { useOutletContext } from "react-router-dom";
 import styles from "./CartPage.module.css";
+import { useOutletContext } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem";
 import Checkout from "../../components/Checkout/Checkout";
-import Footer from "../../components/Footer/Footer";
 
 export default function CartPage() {
   const { cart, setCart } = useOutletContext();
@@ -20,7 +19,6 @@ export default function CartPage() {
 
   const sumTotal = calculateTotal();
 
-  console.log("CART PAGE", cart);
   return (
     <>
     {
