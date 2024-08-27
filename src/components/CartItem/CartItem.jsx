@@ -6,6 +6,10 @@ export default function CartItem({ title, price, totalPrice, imgUrl, deleteItem 
   const { productQty, incrementQty, decrementQty, handleChange } =
     useChangeProductQuantity({ title });
 
+    function handleChangeLocal() {
+      
+    }
+
   return (
     <div className={styles.cartItemDiv}>
       <div>

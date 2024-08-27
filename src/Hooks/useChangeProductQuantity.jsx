@@ -68,7 +68,7 @@ export default function useChangeProductQuantity({ title }) {
           if (product.title === item.title) {
             return {
               ...product,
-              productQty: e.target.value,
+              productQty: parseInt(e.target.value),
             };
           } else {
             return product;
